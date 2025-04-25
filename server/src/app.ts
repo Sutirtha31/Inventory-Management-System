@@ -9,14 +9,21 @@ const app: Application = express();
 
 app.use(express.json());
 app.use(morgan('dev'));
+app.use(cors({
+  origin: ['http://localhost:5173', 'https://inventory-navy.vercel.app'],
+}));
 
-app.use(cors({ origin: ['http://localhost:5173', 'https://inventory-navy.vercel.app'] }));
+// Root route just to test the server
+app.get('/', (req, res) => {
+  res.send('🎉 Inventory Management Backend is Live!');
+});
 
-// application routes
+// Application routes
 app.use('/api/v1', rootRouter);
 
+// Error handlers
 app.use(globalErrorHandler);
-
 app.use(notFound);
 
 export default app;
+
