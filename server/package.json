@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
     "build": "tsc",
-    "postinstall": "npm run build",     // ← ensures 'build' runs after `npm install`
+    "postinstall": "npm run build",
     "start": "node ./dist/server.js",
     "lint": "eslint src --ignore-path .eslintignore --ext .ts",
     "lint:fix": "eslint src --fix",
@@ -42,4 +42,3 @@
     "node": ">=18"
   }
 }
-
